@@ -99,7 +99,7 @@ sudo systemctl start pingora-proxy
 
 ## 说明
 
-本项目代码由 AI（Claude）生成，人类仅提供需求和测试。🤖
+本项目代码由 AI（千帆 + OpenClaw + GLM-5）生成，人类仅提供需求和测试。🤖
 
 ## License
 
