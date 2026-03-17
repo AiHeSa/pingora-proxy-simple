@@ -1,0 +1,14 @@
+[Unit]
+Description=Pingora Proxy Server
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/webapps/pingora-proxy
+ExecStart=/root/webapps/pingora-proxy/target/release/pingora-proxy
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
