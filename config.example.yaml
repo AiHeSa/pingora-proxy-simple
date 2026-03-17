@@ -1,0 +1,18 @@
+# Pingora 代理配置示例
+
+servers:
+  # 静态文件 + API 同端口示例
+  - listen: "0.0.0.0:7000"
+    name: "my-app"
+    locations:
+      - path: "/api"
+        upstream: "127.0.0.1:3001"
+      - path: "/"
+        static_root: "/var/www/my-app"
+
+  # 纯静态文件示例
+  - listen: "0.0.0.0:80"
+    name: "default"
+    locations:
+      - path: "/"
+        static_root: "/var/www/html"
