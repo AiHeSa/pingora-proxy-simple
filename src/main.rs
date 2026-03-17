@@ -191,13 +191,14 @@ fn main() -> Result<()> {
     }
 
     let conf = Arc::new(ServerConf::default());
-    let proxy = MyProxy::new(config);
+    let proxy = MyProxy::new(config.clone());
     let mut proxy_service = pingora_proxy::http_proxy_service(&conf, proxy);
     
-    proxy_service.add_tcp("0.0.0.0:80");
-    proxy_service.add_tcp("0.0.0.0:7000");
-    proxy_service.add_tcp("0.0.0.0:7002");
-    proxy_service.add_tcp("0.0.0.0:5174");
+    // 从配置文件读取监听地址
+    for server in &config.servers {
+        info!("Adding listener: {}", server.listen);
+        proxy_service.add_tcp(&server.listen);
+    }
     
     let mut server = Server::new(Opt::default())?;
     server.add_service(proxy_service);
