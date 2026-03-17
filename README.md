@@ -97,6 +97,10 @@ sudo systemctl start pingora-proxy
 - Rust 1.70+
 - Pingora 0.8
 
+## 说明
+
+本项目代码由 AI（Claude）生成，人类仅提供需求和测试。🤖
+
 ## License
 
 MIT
